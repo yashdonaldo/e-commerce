@@ -1,0 +1,32 @@
+@import "../component/Header/Navbar.scss";
+@import "../component/Footer/Footer.scss";
+@import "../component/Home/Home.scss";
+@import "./Loading.scss";
+@import "./ProductDetails.scss";
+@import "./Search.scss";
+@import "./userProfile.scss";
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    text-decoration: none;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+.greenColor{
+    color: green;
+}
+.redColor{
+    color: red;
+}

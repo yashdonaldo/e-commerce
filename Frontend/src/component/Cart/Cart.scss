@@ -1,0 +1,103 @@
+.cart-page {
+    border: 1px solid rgba(128, 128, 128, 0.39);
+    margin: 30px 33px;
+    padding: 10px 15px;
+    border-radius: 18px;
+
+    >.heading {
+        margin: 34px;
+        text-align: center;
+    }
+
+    >.cart-item-page {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 34px;
+
+        >.cart-item-collection {
+            width: 100%;
+            height: 100%;
+
+            >.cart-item {
+                margin-left: 35px;
+                width: 90%;
+                padding-bottom: 26px;
+                height: 100%;
+                margin-top: 30px;
+            }
+        }
+
+        >.checkout {
+            width: 55%;
+            background: #8080801a;
+            height: 50%;
+            padding: 20px;
+            border-radius: 20px;
+
+            >.checkout-heading h3 {
+                font-size: 20px;
+                padding-bottom: 10px;
+            }
+
+            >.checkout-price {
+                // border-bottom: 1px solid #80808040;
+                width: 100%;
+            }
+
+            >.checkout-price div {
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: space-between;
+                margin-bottom: 40px;
+                border-bottom: 1px solid #80808073;
+            }
+
+            >.checkout-price h4 {
+                font-size: 16px;
+                color: gray;
+            }
+
+            >.cart-price4 {
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: space-between;
+            }
+
+            >.button button {
+                width: 100%;
+                margin-top: 20px;
+                background: #0000ffb8;
+                color: white;
+                padding: 10px;
+                border: transparent;
+                border-radius: 9px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.no-cart {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    >span {
+        font-size: 55px;
+        color: red;
+    }
+
+    >a {
+        margin-top: 10px;
+        text-decoration: none;
+        color: white;
+        background: black;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}

@@ -1,0 +1,87 @@
+// SidebarNavigation.scss
+.sidebar-navigation {
+  // background-color: #f0f0f0;
+  // padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-navigate {
+    display: flex;
+  }
+
+  .right-navigate {
+    display: flex;
+    margin-right: 20px;
+
+    h2 {
+      font-size: 18px;
+      margin: auto;
+      margin-left: 20px;
+    }
+
+    .filter-options {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+
+      >ul{
+        text-align: center;
+        
+        li {
+          margin-bottom: 10px;
+          cursor: pointer;
+          margin-left: 20px;
+          
+          &:hover {
+            color: #007bff;
+          }
+        }
+      }
+
+      .btn-group button {
+        border: none;
+        background: none;
+        color: black;
+        margin-right: 20px;
+      }
+
+      >p {
+        margin: auto;
+        font-weight: bold;
+        font-size: 17px;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 18px;
+    margin: auto;
+    margin-left: 20px;
+  }
+
+  .filter-options {
+    list-style-type: none;
+    padding: 0;
+    // display: flex;
+    margin: auto;
+
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+      margin-left: 20px;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+
+    .btn-group button {
+      border: none;
+      background: none;
+      color: black;
+      margin-left: 25px;
+    }
+  }
+}

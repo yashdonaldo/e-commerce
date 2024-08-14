@@ -1,0 +1,98 @@
+.dashboard {
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    position: absolute;
+
+    >.dashboard-container {
+        border-left: 1px solid rgba(0, 0, 0, 0.404);
+        background-color: white;
+        padding: 2rem 0;
+
+        >h2 {
+            text-align: center;
+            font-size: 30px;
+            color: rgba(0, 0, 0, 0.582);
+        }
+
+        >p {
+            text-align: center;
+            background-color: rgb(60 135 255 / 82%);
+            padding: .5rem 0;
+            margin: 0 1rem;
+            color: white;
+
+            >span {
+                display: block;
+            }
+        }
+
+        >.product-list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+
+            >.product {
+                background-color: tomato;
+                text-align: center;
+                border-radius: 50%;
+                margin: 0 2rem;
+                padding: 2rem;
+                width: 12%;
+
+                >p {
+                    margin: 0;
+                    font-weight: 500;
+                    color: white;
+                    font-size: 18px;
+                }
+            }
+            
+            >.orders{
+                background-color: rgb(240 167 40 / 45%);
+                text-align: center;
+                border-radius: 50%;
+                margin: 0 1rem;
+                padding: 2rem;
+                width: 12%;
+
+                >p {
+                    margin: 0;
+                    font-weight: 500;
+                    color: black;
+                    font-size: 18px;
+                }
+            }
+            
+            >.user{
+                background-color: rgb(0, 0, 0);
+                text-align: center;
+                border-radius: 50%;
+                margin: 0 2rem;
+                padding: 2rem;
+                width: 12%;
+
+                >p {
+                    margin: 0;
+                    font-weight: 500;
+                    color: rgb(255, 255, 255);
+                    font-size: 18px;
+                }
+            }
+
+        }
+
+        >.linechart{
+            width: 80%;
+            margin: auto;
+        }
+
+        >.doughnoutchart{
+            width: 60%;
+            margin: auto;
+            margin-top: 5rem;
+        }
+    }
+}

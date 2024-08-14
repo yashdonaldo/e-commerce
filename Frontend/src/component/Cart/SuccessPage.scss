@@ -1,0 +1,20 @@
+/* styles.css */
+
+.success-page {
+    text-align: center;
+    text-align: center;
+    width: 100%;
+    transform: translate(0px, 200px);
+}
+
+.success-page h1 {
+    font-size: 3em;
+    color: green;
+    animation: success infinite 4s ease-in ;
+    display: inline-block;
+}
+@keyframes success{
+  from {transform: scale(1);}
+  to {transform: scale(1.2);}
+}
+  

@@ -1,0 +1,135 @@
+.UpdateProfileContainer {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 231, 231);
+    position: relative;
+    top: 0;
+    left: 0;
+
+    .LoginSignUpBox {
+        background-color: white;
+        width: 25vw;
+        height: 70vh;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .signUpFrom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            padding: 2vmax;
+            height: 70%;
+            justify-content: space-evenly;
+            transition: all .5s;
+
+            >div {
+                display: flex;
+                width: 100%;
+                align-items: center;
+
+                >input {
+                    padding: 1vmax 4vmax;
+                    padding-right: 1vmax;
+                    width: 100%;
+                    box-sizing: border-box;
+                    border: 1px solid rgba(0, 0, 0, 0.267);
+                    border-radius: 4px;
+                    font: 300 .9vmax cursive;
+                    outline: none;
+
+                }
+
+                >svg {
+                    position: absolute;
+                    transform: translateX(1vmax);
+                    font-size: 1.6vmax;
+                    color: rgba(0, 0, 0, 0.623);
+                }
+            }
+
+            >a {
+                text-decoration: none;
+                align-self: flex-end;
+                color: rgba(0, 0, 0, 0.651);
+                transition: all .5s;
+                font: 500 1vmax "Gill Sans";
+
+                &:hover {
+                    color: black;
+                }
+            }
+
+            #registerImage>img {
+                width: 3vmax;
+                border-radius: 100%;
+            }
+
+            >#UpdateProfileImage {
+                >img {
+                    vertical-align: middle;
+                    border-radius: 50%;
+                    width: 58px;
+                    object-fit: cover;
+                }
+            }
+
+            .signUpBtn {
+                border: none;
+                background-color: tomato;
+                margin-top: 10px;
+                color: white;
+                font: 300 .9vmax "sans-serif";
+                width: 100%;
+                padding: .8vmax;
+                cursor: pointer;
+                transition: all .5s;
+                border-radius: 4px;
+                outline: none;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+
+                &:hover {
+                    background-color: rgba(179, 66, 45);
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .UpdateProfileContainer {
+        background-color: white;
+
+        .LoginSignUpBox {
+            width: 100vw;
+            height: 95vh;
+
+            .signUpFrom {
+                padding: 5vmax;
+
+                >div {
+
+
+                    >input {
+                        padding: 2.5vmax 5vmax;
+                        font: 300 1.7vmax cursive;
+                    }
+
+                    >svg {
+                        font-size: 3vmax;
+                    }
+                }
+            }
+
+            >a {
+                font: 500 .8vmax "Gill Sans";
+            }
+
+        }
+    }
+}

@@ -1,0 +1,108 @@
+.ConfirmOrderContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    >.orderInfo {
+        width: 70%;
+        height: 100%;
+        border-right: 1px solid #80808073;
+
+        >.shipping-info {
+            margin-left: 40px;
+            padding: 40px;
+
+            >h3 {
+                margin-bottom: 20px;
+                font-size: 27px;
+                word-spacing: 2px;
+                letter-spacing: 2px;
+            }
+
+            >P {
+                margin-left: 25px;
+            }
+
+            >p span {
+                font-weight: bold;
+            }
+        }
+
+        >.cartItem {
+            margin-left: 40px;
+            padding: 0px 40px;
+
+            >h3 {
+                margin-bottom: 20px;
+                font-size: 27px;
+                word-spacing: 2px;
+                letter-spacing: 2px;
+            }
+
+            >.cart-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                border-bottom: 1px solid #8080808c;
+                padding-bottom: 20px;
+
+                >img {
+                    width: 12%;
+                }
+            }
+        }
+    }
+
+    >.checkout {
+        height: 50%;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        margin: auto;
+        width: 26%;
+
+        >.checkout-heading h3 {
+            font-size: 30px;
+            padding-bottom: 10px;
+            font-weight: 500;
+        }
+
+        >.checkout-price {
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        >.checkout-price div {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        >.checkout-price h4 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        >.cart-price4 {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        >.button button {
+            width: 100%;
+            margin-top: 20px;
+            background: tomato;
+            color: white;
+            padding: 10px;
+            border: transparent;
+            border-radius: 9px;
+            font-weight: 500;
+        }
+    }
+}

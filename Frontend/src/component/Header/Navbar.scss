@@ -1,0 +1,91 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+
+    >.logo {
+        font-size: 25px;
+
+        >h3 {
+            margin-right: 9px;
+        }
+    }
+
+    >.tabs {
+        width: 35%;
+
+        >ul {
+            display: flex;
+            justify-content: flex-start;
+
+            li {
+                list-style: none;
+            }
+
+
+            >li a {
+                text-decoration: none;
+                margin-right: 30px;
+                list-style: none;
+                cursor: pointer;
+                font-size: 20px;
+                color: gray;
+                transition: all 1s ease;
+            }
+
+            a:hover {
+                color: black;
+            }
+        }
+    }
+
+
+    >.account {
+        width: 45%;
+
+        >ul {
+            display: flex;
+            justify-content: flex-end;
+
+            li {
+                display: flex;
+                list-style: none;
+            }
+
+            >li a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                margin-right: 30px;
+                list-style: none;
+                cursor: pointer;
+                font-size: 20px;
+                color: black;
+
+                >p {
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+
+    >.profile {
+        margin-left: 20px;
+        margin-right: 20px;
+        >.userProfile>button {
+            height: fit-content;
+            margin-top: 5px;
+            background: white;
+            margin-right: 10px;
+        }
+
+        >.userProfile>button>.speedDialIcon {
+            width: auto;
+            object-fit: cover;
+            border-radius: 50%;
+            height: 45px;
+            border: black;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+
+    >a, >a a{
+        text-decoration: none;
+        transition: all 0.5s;
+        color: rgba(0, 0, 0, 0.61);
+        font: 200 3rem;
+        padding: 1rem;
+        transition: all 0.5s;
+
+        &:hover{
+            color: tomato;
+            transform: scale(1.1);
+        }
+    } 
+    >a p, >a a p{
+        display: flex;
+        align-items: center;
+    }
+    >a p svg, >a a p svg{
+        margin-right: .5rem;
+    }
+}

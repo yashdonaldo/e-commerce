@@ -1,0 +1,70 @@
+// HomePage.scss
+
+.home-page {
+    .banner {
+      background-color: #333;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+      font-size: 2rem;
+      position: relative;
+      top: 0;
+      height: 100vh;
+      background: linear-gradient(90deg, rgba(20,92,107,1) 0%, rgba(38,74,129,1) 2%, rgba(75,37,173,1) 100%);
+    }
+    .banner::after{
+      content: "";
+      width: 100vw;
+      height: 100vmin;
+      background-color: #ffffff;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      bottom: 0;
+      clip-path: polygon(0 88%, 100% 62%, 100% 100%, 0 100%);
+      max-width: 100%;
+    }
+
+    .heading{
+      text-align: center;
+      font-size: 30px;
+      padding: .5vmax;
+      border-bottom: 1px solid rgba(21,21,21,0.5);
+      width: 20vmax;
+      font-family: sans-serif;
+      z-index: 1;
+      margin: 3px auto;
+    }
+
+    // Featured Product
+    .container{
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      max-width: 100%;
+      justify-content: center;
+    }
+    .card{
+      transition: all .5s ease-out;
+      margin: 1vmax auto;
+    }
+    .card:hover{
+      box-shadow: 0 0 5px rgba(15,15,15,0.26);
+      transform: translateY(-1vmax);
+    }
+
+    .slider {
+      margin-top: 20px;
+  
+      .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
