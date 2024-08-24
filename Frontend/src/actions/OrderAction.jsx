@@ -14,7 +14,6 @@ export const createOrder = (order)=> async(dispath,getstate)=>{
         const {data} = await axios.post("/api/v1/order/new",order,config);
         dispath(orderAction.CREATE_ORDER_SUCCESS(data))
     } catch (error) {
-        console.log(error)
         // dispath(orderAction.CREATE_ORDER_FAIL(error.responce.data.message))
     }
 }
@@ -46,7 +45,6 @@ export const getOrderDetails = (id)=> async(dispatch)=>{
         const {data} = await axios.get(`/api/v1/order/${id}`);
         dispatch(orderDetailsAction.ORDER_DETAILS_SUCCESS({data}))
     } catch (error) {
-        console.log(error)
         dispatch(orderDetailsAction.ORDER_DETAILS_FAIL(error.responce.data.message))
     }
 }
@@ -59,7 +57,6 @@ export const getAllOrders = ()=> async(dispath)=>{
         const {data} = await axios.get("/api/v1/admin/orders");
         dispath(allOrderAction.All_Order_Success(data))
     } catch (error) {
-        console.log(error)
         dispath(allOrderAction.All_Order_Fail(error.responce.data.message))
     }
 }
@@ -75,10 +72,8 @@ export const updateOrder = (id, orderData)=> async(dispath,getstate)=>{
             },
         };
         const {data} = await axios.put(`/api/v1/admin/order/${id}`,orderData,config);
-        console.log(data)
         dispath(updateOrderAction.Update_Order_Success(data))
     } catch (error) {
-        console.log(error)
         dispath(updateOrderAction.Update_Order_Fail(error.responce.data.message))
     }
 }
@@ -91,7 +86,6 @@ export const deleteOrder = (id)=> async(dispath,getstate)=>{
         const data = await axios.delete(`/api/v1/admin/order/${id}`);
         dispath(deleteOrderAction.Delete_Order_Success(data))
     } catch (error) {
-        console.log(error)
         dispath(deleteOrderAction.Delete_Order_Fail(error.responce.data.message))
     }
 }

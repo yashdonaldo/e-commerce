@@ -31,7 +31,6 @@ const ResetPassword = () => {
         myForm.set("confirmPassword", confirmPassword)
 
         dispatch(resetPassword(param.token ,myForm))
-        console.log("hello")
     }
 
 

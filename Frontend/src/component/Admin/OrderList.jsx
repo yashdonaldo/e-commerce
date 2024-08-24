@@ -27,7 +27,6 @@ const OrderList = () => {
         dispatch(deleteOrder(id))
     }
 
-    console.log(error, "error", isDeleted, "delteerror", deleteError)
 
     useEffect(() => {
         if (error) {

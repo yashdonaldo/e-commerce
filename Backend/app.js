@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const dotenv = require("dotenv")
+const path = require("path")
 
 
 app.use(express.json({limit: "50mb"}))
@@ -25,6 +26,12 @@ app.use("/api/v1", product)
 app.use("/api/v1", user)
 app.use("/api/v1", Order)
 app.use("/api/v1", RazorpayPayment)
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req,res)=> {
+    res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+})
 
 // Middleware for error
 app.use(errorMiddleware)

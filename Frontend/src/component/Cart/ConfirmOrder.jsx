@@ -37,7 +37,6 @@ const ConfirmOrder = () => {
     navigate("/process/payment")
 }
 
-  console.log(shippingInfo)
   return (
     <Fragment>
       <MetaData tittle={"Confirm Order"} />

@@ -5,7 +5,7 @@ import { LoadUser } from '../actions/UserActions'
 const RegisterUser = createSlice({
     name: "RegisterUser",
     initialState: { user: {}, loading: true, isAuthenticated: false, error: null, success: false },
-    
+
 })
 
 // Load User
@@ -53,28 +53,26 @@ const LoginUser = createSlice({
         },
         Logout_Fail: (state, actions) => {
             state.loading = false,
+                state.error = actions.payload
+        },
+        Register_Request: (state, actions) => {
+            state.loading = true
+        },
+        Register_SUCCESS: (state, actions) => {
+            state.loading = false
+            state.isAuthenticated = true
+            state.user = actions.payload.data
+            state.success = actions.payload.success
+        },
+        Register_Fail: (state, actions) => {
+            state.loading = false
+            state.isAuthenticated = false
+            state.user = null
             state.error = actions.payload
         },
-        reducers: {
-            Register_Request: (state, actions) => {
-                state.loading = true
-            },
-            Register_SUCCESS: (state, actions) => {
-                state.loading = false
-                state.isAuthenticated = true
-                state.user = actions.payload.data
-                state.success = actions.payload.success
-            },
-            Register_Fail: (state, actions) => {
-                state.loading = false
-                state.isAuthenticated = false
-                state.user = null
-                state.error = actions.payload
-            },
-            Register_Error: (state, actions) => {
-                state.error = null
-            },
-        }
+        Register_Error: (state, actions) => {
+            state.error = null
+        },
     }
 })
 
@@ -169,16 +167,16 @@ const ResetPassword = createSlice({
 // All Users List 
 const allUserReducer = createSlice({
     name: "all User",
-    initialState: {loading : true, error: null, users: []},
+    initialState: { loading: true, error: null, users: [] },
     reducers: {
-        All_User_Request: (state, actions)=>{
+        All_User_Request: (state, actions) => {
             state.loading = true
         },
-        All_User_Success: (state, actions)=>{
+        All_User_Success: (state, actions) => {
             state.loading = false
             state.users = actions.payload
         },
-        All_User_Fail: (state, actions)=>{
+        All_User_Fail: (state, actions) => {
             state.error = actions.payload
             state.loading = false
         },
@@ -191,16 +189,16 @@ const allUserReducer = createSlice({
 // Users Detail  
 const userDetailReducer = createSlice({
     name: "User Details",
-    initialState: {loading : true, error: null, user: []},
+    initialState: { loading: true, error: null, user: [] },
     reducers: {
-        User_Details_Request: (state, actions)=>{
+        User_Details_Request: (state, actions) => {
             state.loading = true
         },
-        User_Details_Success: (state, actions)=>{
+        User_Details_Success: (state, actions) => {
             state.loading = false
             state.user = actions.payload
         },
-        User_Details_Fail: (state, actions)=>{
+        User_Details_Fail: (state, actions) => {
             state.error = actions.payload
             state.loading = false
         },
@@ -213,16 +211,16 @@ const userDetailReducer = createSlice({
 // Update Users Details   
 const updateUserReducer = createSlice({
     name: "Update User Details",
-    initialState: {loading : true, error: null, isUpdated: null},
+    initialState: { loading: true, error: null, isUpdated: null },
     reducers: {
-        Update_User_Request: (state, actions)=>{
+        Update_User_Request: (state, actions) => {
             state.loading = true
         },
-        Update_User_Success: (state, actions)=>{
+        Update_User_Success: (state, actions) => {
             state.loading = false
             state.isUpdated = actions.payload
         },
-        Update_User_Fail: (state, actions)=>{
+        Update_User_Fail: (state, actions) => {
             state.error = actions.payload
             state.loading = false
         },
@@ -238,17 +236,17 @@ const updateUserReducer = createSlice({
 // Delete User
 const deleteUserReducer = createSlice({
     name: "Delete User",
-    initialState: {loading : true, error: null, isDeleted: null, message: {}},
+    initialState: { loading: true, error: null, isDeleted: null, message: {} },
     reducers: {
-        Delete_User_Request: (state, actions)=>{
+        Delete_User_Request: (state, actions) => {
             state.loading = true
         },
-        Delete_User_Success: (state, actions)=>{
+        Delete_User_Success: (state, actions) => {
             state.loading = false
             state.isDeleted = actions.payload.data.success
             state.message = actions.payload.data.message
         },
-        Delete_User_Fail: (state, actions)=>{
+        Delete_User_Fail: (state, actions) => {
             state.error = actions.payload
             state.loading = false
         },

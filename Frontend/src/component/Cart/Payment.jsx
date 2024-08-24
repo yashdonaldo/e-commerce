@@ -47,7 +47,6 @@ const Payment = () => {
             },
           };
           const { data } = await axios.post("/api/v1/paymentvarification", response, config)
-          console.log(data, "data")
           if(data.success == true){
             userOrder.paymentInfo={
               id: response.razorpay_payment_id,
@@ -77,8 +76,6 @@ const Payment = () => {
 
     const razor = new window.Razorpay(options);
     razor.open();
-
-    // console.log(orderData)
 
   }
 

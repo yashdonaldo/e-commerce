@@ -14,7 +14,6 @@ const CartItemCard = ({item}) => {
     const increaseQuantity = (id, quantity)=>{
         const newQty = Number(quantity) + Number( item.quantity);
         dispatch(addItemsToCart(id, newQty))
-        // console.log(newQty)
     }
 
     const deleteCart = (id) =>{

@@ -7,7 +7,6 @@ const CartReducer = createSlice({
         ADD_TO_CART: (state, actions) => {
             const item = actions.payload;
             const isItemExist = state.cartItem.find((i) => i.product === item.product)
-            // console.log("is exist", isItemExist)
             if (isItemExist) {
                 return {
                     ...state,

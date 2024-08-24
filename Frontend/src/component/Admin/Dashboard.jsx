@@ -21,7 +21,6 @@ const Dashboard = () => {
     }
   });
 
-  console.log(OutOfStock)
 
   useEffect(() => {
     dispatch(getAllProdcutAdmin())

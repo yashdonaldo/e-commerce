@@ -16,11 +16,9 @@ export const login = (email, password) => async (dispatch) => {
             { email, password },
             config
         );
-        console.log(data)
         dispatch(UserAction.LOGIN_SUCCESS({data}))
 
     } catch (error) {
-        console.log(error)
         dispatch(UserAction.Login_Fail({
             payload: error.response.data.message
         }))
@@ -46,8 +44,8 @@ export const Register = (userData) => async (dispatch) => {
         )
 
     } catch (error) {
-        dispatch(UserAction.Login_Fail({
-            payload: error.response
+        dispatch(UserAction.Register_Fail({
+            payload: error.response.data.message
 
         }))
     }
@@ -93,7 +91,6 @@ export const Logout = () => async (dispatch) => {
 // Update User Profile Update
 export const updateProfile = (userData) => async (dispatch) => {
     try {
-        console.log("user data", userData)
         dispatch(updateProfileAction.UpdateProfileRequest())
 
         const config = {
@@ -125,13 +122,10 @@ export const UpdatePassword = (passwords) => async (dispatch) => {
         };
         const { data } = await axios.put(`/api/v1/password/update`, passwords, config);
 
-        console.log("Profile data", data)
-
         dispatch(UpdatePasswordAction.UpdatePasswordSucess({
             password: data
         }))
     } catch (error) {
-        // console.log(error)
         dispatch(UpdatePasswordAction.UpdatePasswordFail({
             message: error.response.data.message
         }))
@@ -154,7 +148,6 @@ export const forgotPassword = (email) => async (dispatch) => {
         )
 
     } catch (error) {
-        console.log("error", error)
         dispatch(ForgotPasswordAction.ForgotPasswordFail({
             payload: error.response.data.message
 
@@ -173,14 +166,12 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
         };
         const data = await axios.post(`/api/v1/password/reset/${token}`, passwords, config);
 
-        console.log(data)
         dispatch(ResetPasswordAction.ResetPasswordSucess({
             data: data.data.success,
         })
         )
 
     } catch (error) {
-        console.log("error", error)
         dispatch(ResetPasswordAction.ResetPasswordFail({
             payload: error.response.data.message
 

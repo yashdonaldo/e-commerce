@@ -71,7 +71,6 @@ const ProductAdd = () => {
       myForm.append("images", img)
     })
 
-    // console.log(myForm)
 
     dispatch(CreateProduct(myForm))
   }

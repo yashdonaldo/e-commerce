@@ -75,7 +75,6 @@ const ProductDetails = () => {
         myForm.set("comment", comment);
         myForm.set("productId", param.id);
 
-        // console.log(myForm)
 
         dispatch(newReview(myForm));
     }
@@ -90,8 +89,6 @@ const ProductDetails = () => {
         toast.success("tost working")
         dispatch(getProductDetails(param.id))
     }, [dispatch, param.id, review, toast, reviewError, NewReviewAction]);
-
-    console.log(product)
 
 
     return (

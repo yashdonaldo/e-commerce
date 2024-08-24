@@ -16,7 +16,6 @@ export const getProduct = (keyword = "", currentPage = 1, price = [0, 25000], ca
         }
 
         const data = await axios.get(link);
-        // console.log(data)
 
         dispatch(ProductAction.ALL_PRODUCT_SUCCESS({
             product: data.data.product,
@@ -74,7 +73,6 @@ export const newReview = (reviewData) => async (dispatch) => {
         })
         )
     } catch (error) {
-        console.log(error)
         dispatch(NewReviewAction.NEW_REVIEW_FAIL({
             payload: error.response.data.message
         }),
@@ -99,7 +97,6 @@ export const getAllProdcutAdmin = () => async(dispatch) =>{
         }))
 
     } catch (error) {
-        console.log(error)
         dispatch(AdminProductAction.Admin_Product_Fail({
             payload : error
         }))
@@ -138,11 +135,9 @@ export const deleteProduct = (id) => async(dispatch) => {
 
         const data = await axios.delete(`/api/v1/admin/product/${id}`);
 
-        console.log(data)
 
         dispatch(DeleteProductAction.Delete_Product_Success(data));
     } catch (error) {
-        console.log(error)
         dispatch(DeleteProductAction.Delete_Product_Fail({
             payload : error.response.data.message
         }));
@@ -180,7 +175,6 @@ export const getAllReviews = (id) => async(dispatch) =>{
         dispatch(AllReviewAction.All_Review_Success(data.data.reviews))
 
     } catch (error) {
-        console.log(error)
         dispatch(AllReviewAction.All_Review_Fail({
             payload : error.response.data.message
         }))
@@ -198,7 +192,6 @@ export const deleteReview = (ProductId, reviewId) => async(dispatch) =>{
         dispatch(deleteReviewAction.Delete_Review_Success(data.data.success))
 
     } catch (error) {
-        console.log(error)
         dispatch(deleteReviewAction.Delete_Review_Fail({
             payload : error.response.data.message
         }))

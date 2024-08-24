@@ -13,7 +13,6 @@ const OrderDetail = () => {
 
     const dispatch = useDispatch();
     const params = useParams();
-    console.log(order, orderloading)
     
     useEffect(()=> {
         if(error){

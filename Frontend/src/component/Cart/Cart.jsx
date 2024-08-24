@@ -13,9 +13,6 @@ const Cart = () => {
     const { cartItem } = useSelector((state) => state.Cart)
     const { isAuthenticated } = useSelector((state) => state.LoginUser)
     const navigate = useNavigate()
-
-    // console.log("cart item", cart, item)
-
     const subTotal = cartItem.reduce(
         (acc, item) => acc + item.price * item.quantity, 0
     )

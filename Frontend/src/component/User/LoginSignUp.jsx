@@ -20,8 +20,6 @@ const LoginSignUp = () => {
     const registerTab = useRef(null)
     const SwitchTab = useRef(null)
 
-    console.log("Error", error, "isauthenticated", isAuthenticated, "loading", loading )
-
     const [loginEmail, setLoginEmail] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
 

@@ -22,7 +22,6 @@ const SidebarNavigation = (props) => {
         setPrice(namePrice)
         props.sendPrice(namePrice)
     }
-    // console.log(category)
     return (
         <Fragment>
 

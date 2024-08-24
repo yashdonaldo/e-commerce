@@ -27,7 +27,6 @@ const UserList = () => {
         dispatch(deleteUser(id))
     }
 
-    console.log(deleteError, isDeleted, message)
 
     useEffect(() => {
         if (error) {

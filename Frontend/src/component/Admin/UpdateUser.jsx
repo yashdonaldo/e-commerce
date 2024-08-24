@@ -58,7 +58,6 @@ const UpdateUser = () => {
     }
   }, [dispatch, error, isUpdated, updateError, setOpen, user]);
 
-  console.log(user )
 
   const updateUserSubmitHandler = (e) => {
     e.preventDefault();

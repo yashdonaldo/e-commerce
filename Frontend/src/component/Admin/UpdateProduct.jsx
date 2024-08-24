@@ -93,7 +93,6 @@ const UpdateProduct = () => {
       myForm.append("images", img)
     })
 
-    // console.log(myForm)
 
     dispatch(updateProduct(param.id ,myForm))
   }
