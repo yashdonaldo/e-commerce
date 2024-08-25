@@ -32,10 +32,10 @@ app.use("/api/v1", user)
 app.use("/api/v1", Order)
 app.use("/api/v1", RazorpayPayment)
 
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "./dist")));
 
 app.get("*", (req,res)=> {
-    res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+    res.sendFile(path.resolve(__dirname, "./dist/index.html"));
 })
 
 // Middleware for error

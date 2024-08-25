@@ -1,18 +1,16 @@
 import axios from 'axios'
 import { ProductAction, ProductDetailsAction, NewReviewAction, AdminProductAction, CreateProductAction, DeleteProductAction, updateProductAction, AllReviewAction, deleteReviewAction } from '../Reducer/ProductReducer'
 
-const url = "https://e-commerce-backend-fra4.onrender.com"
-
 // Get Product Action
 export const getProduct = (keyword = "", currentPage = 1, price = [0, 25000], category, ratings = 0) => async (dispatch) => {
     try {
         dispatch({
             type: ProductAction.ALL_PRODUCT_REQUEST()
         })
-        let link = `${url}/api/v1/product?keyword=${keyword}&page=${currentPage}&Price[gte]=${price[0]}&Price[lte]=${price[1]}&ratings[gte]=${ratings}`
+        let link = `/api/v1/product?keyword=${keyword}&page=${currentPage}&Price[gte]=${price[0]}&Price[lte]=${price[1]}&ratings[gte]=${ratings}`
 
         if (category) {
-            link = `${url}/api/v1/product?keyword=${keyword}&page=${currentPage}&Price[gte]=${price[0]}&Price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
+            link = `/api/v1/product?keyword=${keyword}&page=${currentPage}&Price[gte]=${price[0]}&Price[lte]=${price[1]}&category=${category}&ratings[gte]=${ratings}`
 
         }
 
@@ -42,7 +40,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     try {
         dispatch(ProductDetailsAction.PRODUCT_DETAILS_REQUEST())
 
-        const data = await axios.get(`${url}/api/v1/product/${id}`);
+        const data = await axios.get(`/api/v1/product/${id}`);
 
         dispatch(ProductDetailsAction.PRODUCT_DETAILS_SUCCESS({
             product: data.data.product,
@@ -69,7 +67,7 @@ export const newReview = (reviewData) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         };
-        const data = await axios.put(`${url}/api/v1/review`, reviewData, config);
+        const data = await axios.put(`/api/v1/review`, reviewData, config);
 
         dispatch(NewReviewAction.NEW_REVIEW_SUCCESS({
             review: data.success,
@@ -93,7 +91,7 @@ export const getAllProdcutAdmin = () => async(dispatch) =>{
             }
         };
 
-        const data = await axios.get(`${url}/api/v1/admin/products`, config);
+        const data = await axios.get(`/api/v1/admin/products`, config);
 
         dispatch(AdminProductAction.Admin_Product_Success({
             payload: data.data.products
@@ -119,7 +117,7 @@ export const CreateProduct = (productData) => async (dispatch) => {
             }
         };
 
-        const data = await axios.post(`${url}/api/v1/admin/product/new`, productData, config);
+        const data = await axios.post(`/api/v1/admin/product/new`, productData, config);
 
         dispatch(CreateProductAction.Admin_Create_Product_Success(data))
     } catch (error) {
@@ -136,7 +134,7 @@ export const deleteProduct = (id) => async(dispatch) => {
     try {
         dispatch(DeleteProductAction.Delete_Product_Request());
 
-        const data = await axios.delete(`${url}/api/v1/admin/product/${id}`);
+        const data = await axios.delete(`/api/v1/admin/product/${id}`);
 
 
         dispatch(DeleteProductAction.Delete_Product_Success(data));
@@ -158,7 +156,7 @@ export const updateProduct = (id, productData) => async(dispatch) => {
             }
         };
 
-        const data = await axios.put(`${url}/api/v1/admin/product/${id}` ,productData, config);
+        const data = await axios.put(`/api/v1/admin/product/${id}` ,productData, config);
 
         dispatch(updateProductAction.Update_Product_Success(data));
     } catch (error) {
@@ -173,7 +171,7 @@ export const getAllReviews = (id) => async(dispatch) =>{
     try {
         dispatch(AllReviewAction.All_Review_Request())
 
-        const data = await axios.get(`${url}/api/v1/reviews?id=${id}`);
+        const data = await axios.get(`/api/v1/reviews?id=${id}`);
 
         dispatch(AllReviewAction.All_Review_Success(data.data.reviews))
 
@@ -190,7 +188,7 @@ export const deleteReview = (ProductId, reviewId) => async(dispatch) =>{
     try {
         dispatch(deleteReviewAction.Delete_Review_Request())
 
-        const data = await axios.delete(`${url}/api/v1/reviews?productId=${ProductId}&id=${reviewId}`);
+        const data = await axios.delete(`/api/v1/reviews?productId=${ProductId}&id=${reviewId}`);
 
         dispatch(deleteReviewAction.Delete_Review_Success(data.data.success))
 
