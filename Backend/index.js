@@ -2,7 +2,11 @@ const app = require("./app")
 const cloudnary = require("cloudinary")
 const dotenv = require("dotenv")
 const ConectDatabase = require("./config/database")
+// const cors = require("cors")
 
+// app.use(cors({
+//     origin: "http://localhost:5173/"
+// }))
 
 // Handling Uncaught Exception
 process.on("uncaughtException",(err)=>{

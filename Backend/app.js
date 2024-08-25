@@ -6,8 +6,13 @@ const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const dotenv = require("dotenv")
 const path = require("path")
+const cors = require("cors")
 
 
+app.use(cors({
+    origin: "https://e-commerce-frontend-i5di.onrender.com/",
+    methods: ["GET", "POST", "PUT", "DELETE"]
+}))
 app.use(express.json({limit: "50mb"}))
 app.use(cookieParser())
 app.use(express.urlencoded({extended:true, limit:"500mb", parameterLimit: 50000}))
