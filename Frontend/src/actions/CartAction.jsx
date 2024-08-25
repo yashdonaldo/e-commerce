@@ -2,10 +2,12 @@ import axios from 'axios';
 import { CartReducerAction } from '../Reducer/CartReducer';
 
 
+const url = "https://e-commerce-backend-fra4.onrender.com"
+
 // Add to a Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getstate) => {
 
-    const { data } = await axios.get(`/api/v1/product/${id}`)
+    const { data } = await axios.get(`${url}/api/v1/product/${id}`)
 
     dispatch(CartReducerAction.ADD_TO_CART({
         product: data.product._id,

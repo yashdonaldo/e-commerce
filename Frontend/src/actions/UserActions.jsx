@@ -1,6 +1,9 @@
 import { ForgotPasswordAction, ResetPasswordAction, UpdatePasswordAction, UserAction, UserDetailsAction, allUserAction, deleteUserAction, updateProfileAction, updateUserAction } from '../Reducer/UserReducer';
 import axios from 'axios';
 
+
+const url = "https://e-commerce-backend-fra4.onrender.com"
+
 // login Action
 export const login = (email, password) => async (dispatch) => {
     try {
@@ -12,7 +15,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         };
         const data = await axios.post(
-            `/api/v1/login`,
+            `${url}/api/v1/login`,
             { email, password },
             config
         );
@@ -36,7 +39,7 @@ export const Register = (userData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data'
             }
         };
-        const { data } = await axios.post(`/api/v1/register`, userData, config);
+        const { data } = await axios.post(`${url}/api/v1/register`, userData, config);
 
         dispatch(UserAction.Register_SUCCESS({
             data: data.user
@@ -56,7 +59,7 @@ export const LoadUser = () => async (dispatch) => {
     try {
         dispatch(UserAction.Load_User_Request())
 
-        const data = await axios.get(`/api/v1/me`);
+        const data = await axios.get(`${url}/api/v1/me`);
 
         dispatch(UserAction.Load_User_Success({
             data: data.data.user,
@@ -77,7 +80,7 @@ export const Logout = () => async (dispatch) => {
     try {
         dispatch(UserAction.Logout_Request())
 
-        const data = await axios.get(`/api/v1/logout`);
+        const data = await axios.get(`${url}/api/v1/logout`);
 
         dispatch(UserAction.Logout_Success())
 
@@ -98,7 +101,7 @@ export const updateProfile = (userData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data'
             }
         };
-        const { data } = await axios.put(`/api/v1/me/update`, userData, config);
+        const { data } = await axios.put(`${url}/api/v1/me/update`, userData, config);
 
         dispatch(updateProfileAction.UpdateProfileSucess({
             UpdateProfile: data
@@ -120,7 +123,7 @@ export const UpdatePassword = (passwords) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         };
-        const { data } = await axios.put(`/api/v1/password/update`, passwords, config);
+        const { data } = await axios.put(`${url}/api/v1/password/update`, passwords, config);
 
         dispatch(UpdatePasswordAction.UpdatePasswordSucess({
             password: data
@@ -140,7 +143,7 @@ export const forgotPassword = (email) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         };
-        const data = await axios.post(`/api/v1/password/forgot`, email, config);
+        const data = await axios.post(`${url}/api/v1/password/forgot`, email, config);
 
         dispatch(ForgotPasswordAction.ForgotPasswordSucess({
             data: data.data.message,
@@ -164,7 +167,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         };
-        const data = await axios.post(`/api/v1/password/reset/${token}`, passwords, config);
+        const data = await axios.post(`${url}/api/v1/password/reset/${token}`, passwords, config);
 
         dispatch(ResetPasswordAction.ResetPasswordSucess({
             data: data.data.success,
@@ -190,7 +193,7 @@ export const getAllUser = () => async (dispatch) => {
     try {
         dispatch(allUserAction.All_User_Request());
 
-        const data = await axios.get("/api/v1/admin/users");
+        const data = await axios.get("${url}/api/v1/admin/users");
         dispatch(allUserAction.All_User_Success(data.data.user))
     } catch (error) {
         dispatch(allUserAction.All_User_Clear_Error(error.response.data.message))
@@ -208,7 +211,7 @@ export const getUserDetail = (id) => async (dispatch) => {
             }
         };
 
-        const data = await axios.get(`/api/v1/admin/users/${id}`, config);
+        const data = await axios.get(`${url}/api/v1/admin/users/${id}`, config);
         dispatch(UserDetailsAction.User_Details_Success(data.data.user))
     } catch (error) {
         dispatch(UserDetailsAction.User_Details_Fail(error.response.data.message))
@@ -226,7 +229,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
             }
         };
 
-        const data = await axios.put(`/api/v1/admin/users/${id}`, userData, config);
+        const data = await axios.put(`${url}/api/v1/admin/users/${id}`, userData, config);
         dispatch(updateUserAction.Update_User_Success(data.data.success))
     } catch (error) {
         dispatch(updateUserAction.Update_User_Fail(error.response.data.message))
@@ -238,7 +241,7 @@ export const deleteUser = (id) => async (dispatch) => {
     try {
         dispatch(deleteUserAction.Delete_User_Request());
 
-        const data = await axios.delete(`/api/v1/admin/users/${id}`);
+        const data = await axios.delete(`${url}/api/v1/admin/users/${id}`);
         dispatch(deleteUserAction.Delete_User_Success(data))
     } catch (error) {
         dispatch(deleteUserAction.Delete_User_Fail(error.response.data.message))

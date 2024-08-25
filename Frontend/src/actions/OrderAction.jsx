@@ -1,6 +1,8 @@
 import { allOrderAction, deleteOrderAction, myOrderAction, orderAction, orderDetailsAction, updateOrderAction } from "../Reducer/OrderReducer";
 import axios from 'axios';
 
+const url = "https://e-commerce-backend-fra4.onrender.com"
+
 // Create Order
 export const createOrder = (order)=> async(dispath,getstate)=>{
     try {
@@ -11,7 +13,7 @@ export const createOrder = (order)=> async(dispath,getstate)=>{
                 "Content-Type": "application/json"
             },
         };
-        const {data} = await axios.post("/api/v1/order/new",order,config);
+        const {data} = await axios.post(`${url}/api/v1/order/new`,order,config);
         dispath(orderAction.CREATE_ORDER_SUCCESS(data))
     } catch (error) {
         // dispath(orderAction.CREATE_ORDER_FAIL(error.responce.data.message))
@@ -30,7 +32,7 @@ export const myOrders = ()=> async(dispath)=>{
     try {
         dispath(myOrderAction.MY_ORDER_REQUEST());
 
-        const {data} = await axios.get("/api/v1/orders/me");
+        const {data} = await axios.get(`${url}/api/v1/orders/me`);
         dispath(myOrderAction.MY_ORDER_SUCCESS({data}))
     } catch (error) {
         dispath(myOrderAction.MY_ORDER_FAIL(error.responce.data.message))
@@ -42,7 +44,7 @@ export const getOrderDetails = (id)=> async(dispatch)=>{
     try {
         dispatch(orderDetailsAction.ORDER_DETAILS_REQUEST());
 
-        const {data} = await axios.get(`/api/v1/order/${id}`);
+        const {data} = await axios.get(`${url}/api/v1/order/${id}`);
         dispatch(orderDetailsAction.ORDER_DETAILS_SUCCESS({data}))
     } catch (error) {
         dispatch(orderDetailsAction.ORDER_DETAILS_FAIL(error.responce.data.message))
@@ -54,7 +56,7 @@ export const getAllOrders = ()=> async(dispath)=>{
     try {
         dispath(allOrderAction.All_Order_Request());
 
-        const {data} = await axios.get("/api/v1/admin/orders");
+        const {data} = await axios.get(`${url}/api/v1/admin/orders`);
         dispath(allOrderAction.All_Order_Success(data))
     } catch (error) {
         dispath(allOrderAction.All_Order_Fail(error.responce.data.message))
@@ -71,7 +73,7 @@ export const updateOrder = (id, orderData)=> async(dispath,getstate)=>{
                 "Content-Type": "application/json"
             },
         };
-        const {data} = await axios.put(`/api/v1/admin/order/${id}`,orderData,config);
+        const {data} = await axios.put(`${url}/api/v1/admin/order/${id}`,orderData,config);
         dispath(updateOrderAction.Update_Order_Success(data))
     } catch (error) {
         dispath(updateOrderAction.Update_Order_Fail(error.responce.data.message))
@@ -83,7 +85,7 @@ export const deleteOrder = (id)=> async(dispath,getstate)=>{
     try {
         dispath(deleteOrderAction.Delete_Order_Request());
 
-        const data = await axios.delete(`/api/v1/admin/order/${id}`);
+        const data = await axios.delete(`${url}/api/v1/admin/order/${id}`);
         dispath(deleteOrderAction.Delete_Order_Success(data))
     } catch (error) {
         dispath(deleteOrderAction.Delete_Order_Fail(error.responce.data.message))
