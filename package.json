@@ -31,5 +31,6 @@
     "nodemon": "^3.1.4",
     "razorpay": "^2.9.4",
     "validator": "^13.11.0"
-  }
+  },
+  "proxy": "https://e-commerce-backend-fra4.onrender.com/"
 }
